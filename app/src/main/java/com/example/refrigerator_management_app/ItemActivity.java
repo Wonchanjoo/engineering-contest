@@ -1,7 +1,6 @@
 package com.example.refrigerator_management_app;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -25,7 +24,6 @@ import android.widget.TextView;
 
 import com.google.mlkit.vision.common.InputImage;
 
-import java.io.File;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -44,12 +42,7 @@ public class ItemActivity extends AppCompatActivity {
     private String category; // 카테고리 이름
     private String type;
     private String clickItemName; // 클릭한 item 이름
-    private AddItemDialog addItemDialog;
     private TextView selectedCategoryTextView;
-
-    private Uri uri;
-    private Bitmap bitmap;
-    private InputImage inputImage;
 
     private ItemViewModel viewModel;
     private ArrayList<Item> allItems;
@@ -91,20 +84,11 @@ public class ItemActivity extends AppCompatActivity {
         viewModel.setRefrigeratorId(refrigeratorId);
         viewModel.setCategory(category);
         viewModel.setType(type);
-
-        String[] permissions = {
-                Manifest.permission.CAMERA,
-                Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.WRITE_EXTERNAL_STORAGE
-        };
-
-        //checkPermissions(permissions);
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.e("ItemActivity", "onStart()");
         changeFragment(currentFragment);
     }
 
@@ -139,33 +123,6 @@ public class ItemActivity extends AppCompatActivity {
     public ArrayList<Item> getAllItems() { return allItems; }
     public String getClickItemName() { return clickItemName; }
     public void setClickItemName(String clickItemName) { this.clickItemName = clickItemName; }
-    public Uri getUri() { return this.uri; }
-    public Bitmap getBitmap() { return this.bitmap; }
-    public InputImage getInputImage() { return this.inputImage; }
-
-    private void checkPermissions(String[] permissions) {
-        ArrayList<String> targetList = new ArrayList<>();
-
-        for(int i=0; i<permissions.length; i++) {
-            String curPermission = permissions[i];
-            int permissionCheck = ContextCompat.checkSelfPermission(this, curPermission);
-
-            if(permissionCheck == PackageManager.PERMISSION_GRANTED) {
-
-            } else {
-                if(ActivityCompat.shouldShowRequestPermissionRationale(this, curPermission)) {
-
-                } else {
-                    targetList.add(curPermission);
-                }
-            }
-        }
-
-        String[] targets = new String[targetList.size()];
-        targetList.toArray(targets);
-
-        ActivityCompat.requestPermissions(this, targets, 101);
-    }
 
     // 인자로 받은 fragment로 이동하는 함수
     public void changeFragment(int fragment) {
@@ -191,7 +148,7 @@ public class ItemActivity extends AppCompatActivity {
                 break;
 
             case 4: // CalendarFragment 호출
-                CalendarFragment calendarFrag = new CalendarFragment();
+                CalendarFragment calendarFrag = new CalendarFragment(ItemActivity.this);
                 transaction.replace(R.id.fragmentContainerView, calendarFrag);
                 transaction.commit();
                 break;
@@ -212,53 +169,6 @@ public class ItemActivity extends AppCompatActivity {
         int index = viewModel.getItemIndex(clickItemName);
         viewModel.updateItem(index, item);
     }
-
-    private String getDateString(String value) {
-        String str = value.replaceAll("[^0-9]", "");
-        int index = 0;
-        if((index = str.indexOf('2')) != -1) {
-            str = str.substring(index, str.length());
-        }
-
-        // 유통기한 데이터는 2로 시작해야 함
-        if(!str.startsWith("2")) {
-            return "null";
-        }
-
-        // 2020년 유통기한에 대한 처리
-        if(str.startsWith("20") && Integer.parseInt(str.substring(2, 4)) < 13) {
-            str = "20" + str;
-        }
-
-        // 여섯 자리 유통기한 포맷의 경우 여덟 자리 포맷으로 수정
-        str = !str.startsWith("20") ? "20" + str : str;
-
-        // 여덟자리인지 확인
-        if(str.substring(0, 8).length() != 8) {
-            return "null";
-        }
-
-        String year = str.substring(0, 4);
-        String month = str.substring(4, 6);
-        String date = str.substring(6, 8);
-
-        str = year + "-" + month + "-" + date;
-
-
-        return str;
-    }
-
-    public Date StringToDate(String date) {
-        DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-        Date d = null;
-        try{
-            d = format.parse(date);
-        } catch(ParseException e) {
-            e.printStackTrace();
-        }
-        return d;
-    }
-
 
     /*
      * ---------- ItemFragment layout method ---------- *

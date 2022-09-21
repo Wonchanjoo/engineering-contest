@@ -129,9 +129,6 @@ public class AddItemFragment extends Fragment {
         shootItemImageView = getView().findViewById(R.id.shootItemImageView);
         shootExpirationDateBtn = getView().findViewById(R.id.shootExpirationDateImageView);
         recognizer = TextRecognition.getClient(TextRecognizerOptions.DEFAULT_OPTIONS);
-        uri = itemActivity.getUri();
-        bitmap = itemActivity.getBitmap();
-        inputImage = itemActivity.getInputImage();
 
         /* ---------- 리스너 ---------- */
         addItemBtn.setOnClickListener(this::addItemBtnClick);

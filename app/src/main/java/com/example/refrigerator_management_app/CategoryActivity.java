@@ -30,8 +30,6 @@ public class CategoryActivity extends AppCompatActivity {
 
     private CategoryViewModel viewModel;
 
-    private AddCategoryDialog addCategoryDialog;
-
     private SharedPreferences categoryPreferences;
     private String SharedPrefFile = "com.example.android.MyApplication3";
 
@@ -91,16 +89,6 @@ public class CategoryActivity extends AppCompatActivity {
         ((Activity)view.getContext()).getMenuInflater().inflate(R.menu.category_context_menu, contextMenu);
         Log.e("MainActivity", "onCreateContextMenu()");
     }
-
-//    @Override
-//    public boolean onContextItemSelected(MenuItem item) {
-//        switch (item.getItemId()) {
-//            case R.id.delete: // 카테고리 삭제하기
-//                viewModel.deleteItem(viewModel.longClickPosition);
-//                break;
-//        }
-//        return true;
-//    }
 
     public String getUserUid() { return userUid; }
     public String getRefrigeratorId() { return refrigeratorId; }

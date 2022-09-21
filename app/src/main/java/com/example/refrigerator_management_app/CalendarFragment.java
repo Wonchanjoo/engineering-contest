@@ -1,11 +1,17 @@
 package com.example.refrigerator_management_app;
 
+import static android.content.Context.NOTIFICATION_SERVICE;
+
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
 
@@ -32,7 +38,12 @@ public class CalendarFragment extends Fragment {
     private ArrayList<Item> items;
     private MutableLiveData<ArrayList<Item>> itemsLivedata; // 유통기한이 0일 ~ day 남은 아이템들이 들어있는
     private CalendarItemAdapter adapter;
+    private Context context;
+    private String notificationText;
 
+    static final String CHANNEL_ID = "channelId";
+    static final int notificationId = 1;
+    private NotificationManager notificationManager;
     private CalendarView calendarView;
 
     private int day = 4;
@@ -48,6 +59,9 @@ public class CalendarFragment extends Fragment {
 
     public CalendarFragment() {
         // Required empty public constructor
+    }
+    public CalendarFragment(Context context) {
+        this.context = context;
     }
 
     /**
@@ -75,6 +89,11 @@ public class CalendarFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        String textTitle = "Notification Title";
+        String textContent = "Lorem ipsum dolor sit.";
+        // 채널 생성
+        createNotificationChannel();
     }
 
     @Override
@@ -106,6 +125,17 @@ public class CalendarFragment extends Fragment {
                 itemsLivedata.setValue(items);
                 try {
                     getItemOnVergeOfExpiration(selectedDate);
+
+
+                    notificationText = "";
+                    for (int i =0; i<items.size();i++){
+                        long diff = getExpirationDateDifference(items.get(i).getExpirationDate(), selectedDate); // 유통기한 - 선택한 날짜
+                        String diffDate = String.valueOf(diff);
+                        Log.e("onSelectedDayChange",diffDate+"남음");
+                        String text = items.get(i).getName() + "이(가) " + diffDate + "일 남았습니다!\n";
+                        notificationText += text;
+                    }
+                    sendNotification(notificationText);
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
@@ -158,5 +188,42 @@ public class CalendarFragment extends Fragment {
                 }
             }
         }
+    }
+
+    private void createNotificationChannel() {
+        // Android8.0 이상인지 확인
+        notificationManager = (NotificationManager) context.getSystemService(NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            Log.e("createNotificationChannel","createNotificationChannel");
+            // 채널에 필요한 정보 제공
+            String name = "name";
+            String description = "description";
+
+            // 중요도 설정, Android7.1 이하는 다른 방식으로 지원한다.(위에서 설명)
+            int importance = NotificationManager.IMPORTANCE_DEFAULT;
+
+            // 채널 생성
+            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
+            channel.setDescription(description);
+            notificationManager.createNotificationChannel(channel);
+        }
+    }
+    // Notification Builder를 만드는 메소드
+    private NotificationCompat.Builder getNotificationBuilder(String text) {
+        NotificationCompat.Builder notifyBuilder = new NotificationCompat.Builder(context, CHANNEL_ID)
+                .setContentTitle("[내 손 안의 냉장고] 유통기한 알림")
+                .setContentText(text)
+                .setSmallIcon(R.drawable.calendar_icon);
+        return notifyBuilder;
+    }
+
+    // Notification을 보내는 메소드
+    public void sendNotification(String text){
+        Log.e("sendNotification","sendNotification");
+        // Builder 생성
+        NotificationCompat.Builder notifyBuilder = getNotificationBuilder(text);
+        // Manager를 통해 notification 디바이스로 전달
+        notificationManager.notify(notificationId,notifyBuilder.build());
     }
 }
