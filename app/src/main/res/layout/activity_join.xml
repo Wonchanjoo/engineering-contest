@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".JoinActivity">
+
+    <ImageView
+        android:id="@+id/joinBackgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/start_background" />
+
+    <ImageView
+        android:id="@+id/joinBlueBackgroundImage"
+        android:layout_width="wrap_content"
+        android:layout_height="410dp"
+        android:layout_marginTop="340dp"
+        app:layout_constraintEnd_toEndOf="@id/joinBackgroundImage"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/joinBackgroundImage"
+        app:layout_constraintTop_toTopOf="@+id/joinBackgroundImage"
+        app:srcCompat="@drawable/blue_background" />
+
+    <ImageView
+        android:id="@+id/joinIdImage"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="@+id/joinIdTextImage"
+        app:layout_constraintEnd_toStartOf="@+id/joinIdTextImage"
+        app:layout_constraintTop_toTopOf="@+id/joinIdTextImage"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/id_text" />
+
+    <ImageView
+        android:id="@+id/joinIdTextImage"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/joinBlueBackgroundImage"
+        app:layout_constraintTop_toTopOf="@+id/joinBlueBackgroundImage"
+        app:srcCompat="@drawable/edit_text_image" />
+
+    <EditText
+        android:id="@+id/joinIdText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@null"
+        android:hint=" 아이디 입력"
+        android:inputType="textEmailAddress"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/joinIdTextImage"
+        app:layout_constraintEnd_toEndOf="@+id/joinIdTextImage"
+        app:layout_constraintStart_toStartOf="@+id/joinIdTextImage"
+        app:layout_constraintTop_toTopOf="@+id/joinIdTextImage" />
+
+    <ImageView
+        android:id="@+id/joinEmailImage"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="@+id/joinEmailTextImage"
+        app:layout_constraintEnd_toStartOf="@+id/joinEmailTextImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/joinIdImage"
+        app:layout_constraintTop_toTopOf="@+id/joinEmailTextImage"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/email_text" />
+
+    <ImageView
+        android:id="@+id/joinEmailTextImage"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/joinIdTextImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/joinIdTextImage"
+        app:layout_constraintTop_toBottomOf="@+id/joinIdTextImage"
+        app:srcCompat="@drawable/edit_text_image" />
+
+    <EditText
+        android:id="@+id/joinEmailText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@null"
+        android:hint=" 이메일 입력"
+        android:inputType="textEmailAddress"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/joinEmailTextImage"
+        app:layout_constraintEnd_toEndOf="@+id/joinEmailTextImage"
+        app:layout_constraintStart_toStartOf="@+id/joinEmailTextImage"
+        app:layout_constraintTop_toTopOf="@+id/joinEmailTextImage" />
+
+    <ImageView
+        android:id="@+id/joinPwImage"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="@+id/joinPwTextImage"
+        app:layout_constraintEnd_toStartOf="@+id/joinPwTextImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/joinIdImage"
+        app:layout_constraintTop_toTopOf="@+id/joinPwTextImage"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/password_text" />
+
+    <ImageView
+        android:id="@+id/joinPwTextImage"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/joinEmailTextImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/joinEmailTextImage"
+        app:layout_constraintTop_toBottomOf="@+id/joinEmailTextImage"
+        app:srcCompat="@drawable/edit_text_image" />
+
+    <EditText
+        android:id="@+id/joinPwText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@null"
+        android:hint=" 6글자 이상 입력하시오"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/joinPwTextImage"
+        app:layout_constraintEnd_toEndOf="@+id/joinPwTextImage"
+        app:layout_constraintStart_toStartOf="@+id/joinPwTextImage"
+        app:layout_constraintTop_toTopOf="@+id/joinPwTextImage" />
+
+    <ImageView
+        android:id="@+id/joinPwCheckImage"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="@+id/joinPwCheckTextImage"
+        app:layout_constraintEnd_toStartOf="@+id/joinPwCheckTextImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/joinIdImage"
+        app:layout_constraintTop_toTopOf="@+id/joinPwCheckTextImage"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/password_check_text" />
+
+    <ImageView
+        android:id="@+id/joinPwCheckTextImage"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/joinPwTextImage"
+        app:layout_constraintStart_toStartOf="@+id/joinPwTextImage"
+        app:layout_constraintTop_toBottomOf="@+id/joinPwTextImage"
+        app:srcCompat="@drawable/edit_text_image" />
+
+    <EditText
+        android:id="@+id/joinPwCheckText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@null"
+        android:hint=" 비밀번호 다시 입력"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/joinPwCheckTextImage"
+        app:layout_constraintEnd_toEndOf="@+id/joinPwCheckTextImage"
+        app:layout_constraintStart_toStartOf="@+id/joinPwCheckTextImage"
+        app:layout_constraintTop_toTopOf="@+id/joinPwCheckTextImage" />
+
+    <ImageView
+        android:id="@+id/joinPwCheckWarningImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintStart_toStartOf="@+id/joinPwCheckTextImage"
+        app:layout_constraintTop_toBottomOf="@+id/joinPwCheckTextImage"
+        app:srcCompat="@drawable/empty_warning" />
+
+    <TextView
+        android:id="@+id/joinPwCheckWarningText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="#F44336"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/joinPwCheckWarningImage"
+        app:layout_constraintStart_toEndOf="@+id/joinPwCheckWarningImage"
+        app:layout_constraintTop_toTopOf="@+id/joinPwCheckWarningImage" />
+
+    <ImageView
+        android:id="@+id/joinButton"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/joinBlueBackgroundImage"
+        app:layout_constraintEnd_toEndOf="@+id/joinPwCheckTextImage"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/joinPwCheckImage"
+        app:srcCompat="@drawable/join_button_image" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

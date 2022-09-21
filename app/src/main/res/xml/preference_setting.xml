@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="알림 설정">
+        <SwitchPreference
+            android:title="알람"
+            android:defaultValue="true" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="디스플레이">
+        <ListPreference
+            android:title="테마"
+            android:summary="Light" />
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="냉장고 설정">
+
+    </PreferenceCategory>
+</PreferenceScreen>

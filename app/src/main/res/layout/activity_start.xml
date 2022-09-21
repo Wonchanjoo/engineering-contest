@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartActivity">
+
+    <ImageView
+        android:id="@+id/startBackgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/start_background" />
+
+    <ImageView
+        android:id="@+id/startBlueBackgroundImage"
+        android:layout_width="wrap_content"
+        android:layout_height="410dp"
+        android:layout_marginTop="340dp"
+        app:layout_constraintEnd_toEndOf="@id/startBackgroundImage"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@id/startBackgroundImage"
+        app:layout_constraintTop_toTopOf="@+id/startBackgroundImage"
+        app:srcCompat="@drawable/blue_background" />
+
+    <ImageView
+        android:id="@+id/startLoginButton"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/startBlueBackgroundImage"
+        app:layout_constraintStart_toStartOf="@+id/startBlueBackgroundImage"
+        app:layout_constraintTop_toTopOf="@+id/startBlueBackgroundImage"
+        app:srcCompat="@drawable/start_login" />
+
+    <ImageView
+        android:id="@+id/startJoinButton"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        app:layout_constraintEnd_toEndOf="@id/startLoginButton"
+        app:layout_constraintStart_toStartOf="@id/startLoginButton"
+        app:layout_constraintTop_toBottomOf="@id/startLoginButton"
+        app:srcCompat="@drawable/start_join" />
+
+    <ImageView
+        android:id="@+id/startSettingButton"
+        android:layout_width="0dp"
+        android:layout_height="120dp"
+        app:layout_constraintEnd_toEndOf="@+id/startJoinButton"
+        app:layout_constraintStart_toStartOf="@+id/startJoinButton"
+        app:layout_constraintTop_toBottomOf="@+id/startJoinButton"
+        app:srcCompat="@drawable/start_setting" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

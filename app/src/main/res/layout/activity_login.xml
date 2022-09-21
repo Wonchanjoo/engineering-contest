@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:id="@+id/loginBackgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/start_background" />
+
+    <ImageView
+        android:id="@+id/loginBlueBackgroundImage"
+        android:layout_width="300dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="330dp"
+        app:layout_constraintEnd_toEndOf="@id/loginBackgroundImage"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@id/loginBackgroundImage"
+        app:layout_constraintTop_toTopOf="@+id/loginBackgroundImage"
+        app:srcCompat="@drawable/blue_background_short" />
+
+    <ImageView
+        android:id="@+id/loginEmailImage"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="@+id/loginEmailTextImage"
+        app:layout_constraintEnd_toStartOf="@+id/loginEmailTextImage"
+        app:layout_constraintTop_toTopOf="@+id/loginEmailTextImage"
+        app:layout_constraintVertical_bias="0.5"
+        app:srcCompat="@drawable/email_text" />
+
+    <ImageView
+        android:id="@+id/loginEmailTextImage"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/loginBlueBackgroundImage"
+        app:layout_constraintTop_toTopOf="@+id/loginBlueBackgroundImage"
+        app:srcCompat="@drawable/edit_text_image" />
+
+    <EditText
+        android:id="@+id/loginEmailText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@null"
+        android:hint=" 이메일 입력"
+        android:inputType="textEmailAddress"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/loginEmailTextImage"
+        app:layout_constraintEnd_toEndOf="@+id/loginEmailTextImage"
+        app:layout_constraintStart_toStartOf="@+id/loginEmailTextImage"
+        app:layout_constraintTop_toTopOf="@+id/loginEmailTextImage" />
+
+    <ImageView
+        android:id="@+id/loginPwImage"
+        android:layout_width="100dp"
+        android:layout_height="45dp"
+        app:layout_constraintBottom_toBottomOf="@+id/loginPwTextImage"
+        app:layout_constraintEnd_toStartOf="@+id/loginPwText"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/loginEmailImage"
+        app:layout_constraintTop_toTopOf="@+id/loginPwTextImage"
+        app:layout_constraintVertical_bias="0.533"
+        app:srcCompat="@drawable/password_text" />
+
+    <ImageView
+        android:id="@+id/loginPwTextImage"
+        android:layout_width="170dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/loginEmailTextImage"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/loginEmailTextImage"
+        app:layout_constraintTop_toBottomOf="@+id/loginEmailTextImage"
+        app:srcCompat="@drawable/edit_text_image" />
+
+    <EditText
+        android:id="@+id/loginPwText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@null"
+        android:hint=" 비밀번호 입력"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/loginPwTextImage"
+        app:layout_constraintEnd_toEndOf="@+id/loginPwTextImage"
+        app:layout_constraintStart_toStartOf="@+id/loginPwTextImage"
+        app:layout_constraintTop_toTopOf="@+id/loginPwTextImage" />
+
+    <ImageView
+        android:id="@+id/loginButton"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="48dp"
+        app:layout_constraintBottom_toBottomOf="@+id/loginBlueBackgroundImage"
+        app:layout_constraintEnd_toEndOf="@+id/loginPwTextImage"
+        app:layout_constraintStart_toStartOf="@+id/loginPwImage"
+        app:srcCompat="@drawable/login_button" />
+
+    <ImageView
+        android:id="@+id/loginGoToJoinButton"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/loginBlueBackgroundImage"
+        app:layout_constraintStart_toStartOf="@+id/loginBlueBackgroundImage"
+        app:layout_constraintTop_toBottomOf="@+id/loginBlueBackgroundImage"
+        app:srcCompat="@drawable/login_goto_join" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Refrigerator_Management_App</string>
+    <string name="first_screen_name_1">내 손 안의</string>
+    <string name="first_screen_name_2">냉장고</string>
+    <string name="refrigerator_name">냉장고 id를 입력하시오. </string>
+    <string name="click_ok">OK</string>
+    <string name="click_cancel">CANCEL</string>
+    <string name="edit">냉장고 수정</string>
+    <string name="cancel">냉장고 삭제</string>
+    <string name="title_activity_first_login">FirstLoginActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+</resources>
